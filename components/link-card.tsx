@@ -25,8 +25,8 @@ export default function LinkCard({ link, onDelete }: LinkCardProps) {
   const [loadingClicks, setLoadingClicks] = useState(false)
   const supabase = createClient()
 
-  const shortUrl = `purin.link/${link.slug}`
-  const fullShortUrl = `https://purin.link/${link.slug}`
+  const shortUrl = `purinh.com/${link.slug}`
+  const fullShortUrl = `https://purinh.com/${link.slug}`
 
   async function loadClicks() {
     if (loadingClicks) return
