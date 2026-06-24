@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import QRCode from 'qrcode.react'
+import { QRCodeCanvas } from 'qrcode.react'
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/client'
 
@@ -145,7 +145,7 @@ export default function LinkCard({ link, onDelete }: LinkCardProps) {
       {showQR && (
         <div className="mt-4 p-4 bg-slate-50 rounded-lg flex justify-center">
           <div id={`qr-${link.id}`}>
-            <QRCode value={fullShortUrl} size={200} level="H" includeMargin />
+            <QRCodeCanvas value={fullShortUrl} size={200} level="H" includeMargin />
           </div>
         </div>
       )}
