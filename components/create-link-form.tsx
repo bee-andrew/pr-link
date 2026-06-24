@@ -74,7 +74,7 @@ export default function CreateLinkForm({ onSuccess }: CreateLinkFormProps) {
           </label>
           <div className="flex">
             <span className="inline-flex items-center px-3 bg-slate-100 border border-r-0 border-slate-300 rounded-l-lg text-sm text-slate-600">
-              purin.link/
+              purinh.com/
             </span>
             <input
               id="slug"
