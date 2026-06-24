@@ -29,6 +29,17 @@ export default function CreateLinkForm({ onSuccess }: CreateLinkFormProps) {
       return
     }
 
+    // Get current user
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
+
+    if (!user) {
+      setError('You must be logged in to create a link')
+      setLoading(false)
+      return
+    }
+
     // Ensure URL has protocol
     let url = longUrl.trim()
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
@@ -36,6 +47,7 @@ export default function CreateLinkForm({ onSuccess }: CreateLinkFormProps) {
     }
 
     const { error: insertError } = await supabase.from('links').insert({
+      user_id: user.id,
       slug: slug.trim().toLowerCase(),
       long_url: url,
       title: title.trim() || null,
